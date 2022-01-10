@@ -11,7 +11,7 @@ if(isset($_REQUEST['knimi']) && isset($_REQUEST['psw'])) {
     $sool = 'vagavagatekst';
     $krypt = crypt($pass, $sool);
     // kontrollime kas andmebaasis on selline kasutaja
-    global $yhendus;
+
     $kask = $yhendus->prepare("
 SELECT id, unimi, psw, isadmin FROM uuedkasutajad WHERE unimi=?");
     $kask->bind_param("s", $login);
@@ -22,12 +22,15 @@ SELECT id, unimi, psw, isadmin FROM uuedkasutajad WHERE unimi=?");
         $_SESSION['unimi'] = $login;
         if ($onadmin == 1) {
             $_SESSION['admin'] = true;
+            }
             header("Location: kaubahaldus.php");
+            $yhendus->close();
+            exit();
         }
         echo "kasutaja $login või parool $krypt on vale";
         $yhendus->close();
     }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="et">
