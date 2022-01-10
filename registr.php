@@ -45,9 +45,9 @@ VALUES (?,?,?)");
     $kask->execute();
    $_SESSION['unimi'] = $login;
    $_SESSION['admin'] = true;
-//header("location: kaubahaldus.php");
-//$yhendus->close();
-//exit();
+header("location: kaubahaldus.php");
+$yhendus->close();
+exit();
 }
 ?>
 <!DOCTYPE html>

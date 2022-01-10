@@ -35,6 +35,24 @@ $kaubad=kysiKaupadeAndmed();
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
+<div id="menuArea">
+    <a href="registr.php">Loo uus kasutaja</a>
+    <?php
+    if(isset($_SESSION['unimi'])){
+        ?>
+        <h1>Tere, <?="$_SESSION[unimi]"?></h1>
+        <a href="logout.php">Logi välja</a>
+        <?php
+    } else {
+        ?>
+        <a href="login.php">Logi sisse</a>
+        <?php
+    }
+    ?>
+</div>
+<?php
+if(isset($_SESSION['unimi'])){
+?>
 <div class="header">
     <h1>Tabelid * Kaubad ja kaubagrupid</h1>
 </div>
@@ -102,6 +120,8 @@ $kaubad=kysiKaupadeAndmed();
 </form>
     </div>
 </div>
+<?php
+}
+?>
 </body>
 </html>
-
