@@ -1,10 +1,6 @@
 <?php
 require("abifunktsioonid.php");
 session_start();
-/*if(!isset($_SESSION['unimi'])){
-    header('Location: registr.php');
-    exit();
-}*/
 
 if(isSet($_REQUEST["grupilisamine"])){
     lisaGrupp($_REQUEST["uuegrupinimi"]);
@@ -50,9 +46,7 @@ $kaubad=kysiKaupadeAndmed();
     }
     ?>
 </div>
-<?php
-if(isset($_SESSION['unimi'])){
-?>
+
 <div class="header">
     <h1>Tabelid * Kaubad ja kaubagrupid</h1>
 </div>
@@ -106,9 +100,14 @@ if(isset($_SESSION['unimi'])){
                         ?></td>
                     <td><input type="text" name="hind" value="<?=$kaup->hind ?>" /></td>
                 <?php else: ?>
-                    <td><a href="kaubahaldus.php?kustutusid=<?=$kaup->id ?>"
+                    <td>
+                        <?php
+                        if(isset($_SESSION['unimi'])){
+                        ?>
+                        <a href="kaubahaldus.php?kustutusid=<?=$kaup->id ?>"
                            onclick="return confirm('Kas ikka soovid kustutada?')">x</a>
                         <a href="kaubahaldus.php?muutmisid=<?=$kaup->id ?>">m</a>
+                        <?php } ?>
                     </td>
                     <td><?=$kaup->nimetus ?></td>
                     <td><?=$kaup->grupinimi ?></td>
@@ -120,8 +119,5 @@ if(isset($_SESSION['unimi'])){
 </form>
     </div>
 </div>
-<?php
-}
-?>
 </body>
 </html>

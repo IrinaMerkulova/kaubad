@@ -2,7 +2,8 @@
 //lisame oma kasutajanimi, parooli, ja ab_nimi
 $yhendus=new mysqli("localhost", "irinamerk20", "123456", "irinamerk20");
 session_start();
-$error= $_SESSION["error"];
+
+$error = $_SESSION['error'] ?? "";
 
 function puhastaAndmed($data){
     //trim()- eemaldab tühikud
@@ -27,13 +28,13 @@ WHERE unimi=?");
     $kask->bind_result($id, $kasutajanimi, $parool);
     $kask->execute();
     if ($kask->fetch()) {
-        $_SESSION["error"] = "Kasutaja on juba olemas";
+        $_SESSION['error'] = "Kasutaja on juba olemas";
         header("Location: $_SERVER[PHP_SELF]");
         $yhendus->close();
         exit();
 
     } else {
-        $_SESSION["error"] = " ";
+        $_SESSION['error'] = " ";
     }
 
 
