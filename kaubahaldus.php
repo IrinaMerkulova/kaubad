@@ -28,7 +28,7 @@ $kaubad=kysiKaupadeAndmed();
 <head>
     <title>Kaupade halduse leht</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 <div id="menuArea">

@@ -56,10 +56,17 @@ exit();
 <head>
     <title>Registreerimisvorm</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="css/login.css" type="text/css">
 </head>
 <body>
-<h1>Uue kasutaja registreerimine</h1>
-<form action="registr.php" method="post">
+
+<div id="id01">
+<form  class="modal-content animate" action="registr.php" method="post">
+    <div class="imgcontainer">
+        <img src="img/avatar.png" alt="Avatar" class="avatar">
+    </div>
+    <div class="container">
+    <h1>Uue kasutaja registreerimine</h1>
     <label for="knimi">Kasutajanimi</label>
     <input type="text" placeholder="Sisesta kasutajanimi"
            name="knimi" id="knimi" required>
@@ -72,10 +79,13 @@ exit();
     <input type="checkbox" name="admin" id="admin" value="1">
     <br>
     <input type="submit" value="Loo kasutaja">
+    <button type="button"
+            onclick="window.location.href='kaubahaldus.php'"
+            class="cancelbtn">Loobu</button>
 
     <strong> <?=$error ?></strong>
-
+    </div>
 </form>
-
+</div>
 </body>
 </html>

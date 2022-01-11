@@ -37,10 +37,15 @@ SELECT id, unimi, psw, isadmin FROM uuedkasutajad WHERE unimi=?");
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="css/login.css" type="text/css">
 </head>
 <body>
 <h1>Login vorm</h1>
-<form action="login.php" method="post">
+
+<!-- The Modal -->
+<div class="modal">
+<form class="modal-content" action="login.php" method="post">
+    <div class="container">
     <label for="knimi">Kasutajanimi</label>
     <input type="text" placeholder="Sisesta kasutajanimi"
            name="knimi" id="knimi" required>
@@ -51,9 +56,8 @@ SELECT id, unimi, psw, isadmin FROM uuedkasutajad WHERE unimi=?");
     <br>
     <br>
     <input type="submit" value="Logi sisse">
-
-
+    </div>
 </form>
-
+</div>
 </body>
 </html>
